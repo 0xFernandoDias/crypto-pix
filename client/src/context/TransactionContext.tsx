@@ -123,7 +123,7 @@ export const TransactionProvider = ({
 
 			const transactionContract = await getEthereumContract()
 
-			const parsedAmount = ethers.parseUnits(amount)
+			const parsedAmount = ethers.parseEther(amount)
 
 			await ethereum.request({
 				method: "eth_sendTransaction",
@@ -132,7 +132,6 @@ export const TransactionProvider = ({
 						from: currentAccount,
 						to: addressTo,
 						gas: "0x5208",
-						// @ts-ignore
 						value: parsedAmount.toString(),
 					},
 				],
